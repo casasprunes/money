@@ -111,4 +111,11 @@ class MoneyTest {
         assertEquals(Money(0.1124, USD), Money(0.112358, USD).round(4, RoundingMode.HALF_EVEN))
         assertEquals(Money(0.11236, USD), Money(0.112358, USD).round(5, RoundingMode.HALF_EVEN))
     }
+
+    @Test
+    fun `should negate amounts of money`() {
+        assertEquals(Money(-0.1, USD), Money(0.1, USD).negate())
+        assertEquals(Money(0, USD), Money(0, USD).negate())
+        assertEquals(Money(0.1, USD), Money(-0.1, USD).negate())
+    }
 }

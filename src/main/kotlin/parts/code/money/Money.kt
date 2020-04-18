@@ -59,6 +59,11 @@ data class Money(val amount: BigDecimal, val currency: Currency) {
      */
     fun round(scale: Int, roundingMode: RoundingMode): Money = copy(amount = this.amount.setScale(scale, roundingMode))
 
+    /**
+     * Returns a copy of this [Money] instance with the amount negated.
+     */
+    fun negate() = copy(amount = this.amount.negate())
+
     private fun <T> doIfSameCurrency(money: Money, operation: (Money) -> T): T {
         return if (currency == money.currency) {
             operation(money)
