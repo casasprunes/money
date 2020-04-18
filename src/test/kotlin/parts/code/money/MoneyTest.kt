@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
-import parts.code.money.Currencies.EUR
-import parts.code.money.Currencies.USD
+import parts.code.money.Currency.EUR
+import parts.code.money.Currency.USD
 import java.math.BigDecimal
 import java.math.RoundingMode
 
