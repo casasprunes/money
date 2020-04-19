@@ -11,10 +11,10 @@ import org.junit.jupiter.params.provider.CsvSource
 import parts.code.money.Currency.EUR
 import parts.code.money.Currency.USD
 
-class MoneyTest {
+class MoneyShould {
 
     @Test
-    fun `should create money instances by different types`() {
+    fun `create money instances by different types`() {
         assertEquals(BigDecimal.valueOf(0.11), Money(BigDecimal.valueOf(0.11), USD).amount)
         assertEquals(BigDecimal.valueOf(0.11), Money(0.11, USD).amount)
         assertEquals(BigDecimal(0), Money(0, USD).amount)
@@ -23,7 +23,7 @@ class MoneyTest {
     }
 
     @Test
-    fun `should not sum amounts of money with different currencies`() {
+    fun `not sum amounts of money with different currencies`() {
         assertThrows<IllegalArgumentException> { Money(0.11, USD) + Money(2.35, EUR) }
     }
 
@@ -34,12 +34,12 @@ class MoneyTest {
         "0.11 , -2.35   , -2.24",
         "0.11 , 2.35813 , 2.46813"
     )
-    fun `should sum amounts of money`(amount1: Double, amount2: Double, result: Double) {
+    fun `sum amounts of money`(amount1: Double, amount2: Double, result: Double) {
         assertEquals(Money(result, USD), Money(amount1, USD) + Money(amount2, USD))
     }
 
     @Test
-    fun `should not subtract amounts of money with different currencies`() {
+    fun `not subtract amounts of money with different currencies`() {
         assertThrows<IllegalArgumentException> { Money(0.11, USD) - Money(2.35, EUR) }
     }
 
@@ -50,12 +50,12 @@ class MoneyTest {
         "0.11 , -2.35   , 2.46",
         "0.11 , 2.35813 , -2.24813"
     )
-    fun `should subtract amounts of money`(amount1: Double, amount2: Double, result: Double) {
+    fun `subtract amounts of money`(amount1: Double, amount2: Double, result: Double) {
         assertEquals(Money(result, USD), Money(amount1, USD) - Money(amount2, USD))
     }
 
     @Test
-    fun `should multiply amounts of money`() {
+    fun `multiply amounts of money`() {
         assertEquals(Money(6, USD), Money(2, USD) * 3)
     }
 
@@ -66,7 +66,7 @@ class MoneyTest {
         "0.11 , -2.35   , -0.2585",
         "0.11 , 2.35813 , 0.2593943"
     )
-    fun `should multiply amounts of money by decimal numbers`(
+    fun `multiply amounts of money by decimal numbers`(
         amount: Double,
         multiplicand: Double,
         result: BigDecimal
@@ -76,7 +76,7 @@ class MoneyTest {
     }
 
     @Test
-    fun `should divide amounts of money`() {
+    fun `divide amounts of money`() {
         assertEquals(Money(0.6666666666666667, USD), Money(2, USD) / 3)
     }
 
@@ -86,13 +86,13 @@ class MoneyTest {
         "0.11 , -2.35   , -0.04680851063829787",
         "0.11 , 2.35813 , 0.04664713141345049"
     )
-    fun `should divide amounts of money by decimal numbers`(amount: Double, divisor: Double, result: BigDecimal) {
+    fun `divide amounts of money by decimal numbers`(amount: Double, divisor: Double, result: BigDecimal) {
         assertEquals(Money(result, USD), Money(amount, USD) / divisor)
         assertEquals(Money(result, USD), Money(amount, USD) / BigDecimal.valueOf(divisor))
     }
 
     @Test
-    fun `should compare amounts of money`() {
+    fun `compare amounts of money`() {
         assertTrue((Money(2.35, USD) > Money(0.11, USD)))
         assertTrue((Money(0.11, USD) >= Money(0.11, USD)))
         assertTrue((Money(2.35, USD) >= Money(0.11, USD)))
@@ -104,7 +104,7 @@ class MoneyTest {
     }
 
     @Test
-    fun `should round amounts of money`() {
+    fun `round amounts of money`() {
         assertEquals(Money(0.1, USD), Money(0.112358, USD).round(1, RoundingMode.HALF_EVEN))
         assertEquals(Money(0.11, USD), Money(0.112358, USD).round(2, RoundingMode.HALF_EVEN))
         assertEquals(Money(0.112, USD), Money(0.112358, USD).round(3, RoundingMode.HALF_EVEN))
@@ -113,7 +113,7 @@ class MoneyTest {
     }
 
     @Test
-    fun `should negate amounts of money`() {
+    fun `negate amounts of money`() {
         assertEquals(Money(-0.1, USD), Money(0.1, USD).negate())
         assertEquals(Money(0, USD), Money(0, USD).negate())
         assertEquals(Money(0.1, USD), Money(-0.1, USD).negate())
