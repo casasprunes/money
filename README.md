@@ -1,5 +1,6 @@
 ![Build](https://github.com/casasprunes/money/workflows/Build/badge.svg)
 [![codecov](https://codecov.io/gh/casasprunes/money/branch/master/graph/badge.svg)](https://codecov.io/gh/casasprunes/money)
+[![Download](https://api.bintray.com/packages/casasprunes/money/parts.code.money/images/download.svg?version=1.0.0)](https://bintray.com/casasprunes/money/parts.code.money/1.0.0/link)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 # Money
