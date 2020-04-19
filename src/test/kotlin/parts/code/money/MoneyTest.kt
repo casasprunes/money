@@ -1,5 +1,7 @@
 package parts.code.money
 
+import java.math.BigDecimal
+import java.math.RoundingMode
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -8,8 +10,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import parts.code.money.Currency.EUR
 import parts.code.money.Currency.USD
-import java.math.BigDecimal
-import java.math.RoundingMode
 
 class MoneyTest {
 
