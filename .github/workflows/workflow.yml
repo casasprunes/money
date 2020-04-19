@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - release
 
 jobs:
   build:
@@ -27,10 +28,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build --stacktrace
-      - name: Echo ref
-        run: echo ${{github.ref}}
       - name: Publish with Gradle
-        if: false
+        if: github.ref == 'refs/heads/release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew publish --stacktrace
